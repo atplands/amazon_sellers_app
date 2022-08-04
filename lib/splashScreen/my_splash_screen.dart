@@ -4,22 +4,16 @@ import 'package:flutter/material.dart';
 import '../authScreens/auth_screen.dart';
 import '../brandsScreens/home_screen.dart';
 
-
-class MySplashScreen extends StatefulWidget
-{
+class MySplashScreen extends StatefulWidget {
   @override
   State<MySplashScreen> createState() => _MySplashScreenState();
 }
 
-
-
-class _MySplashScreenState extends State<MySplashScreen>
-{
-  splashScreenTimer()
-  {
-    Timer(const Duration(seconds: 4), () async
-    {
+class _MySplashScreenState extends State<MySplashScreen> {
+  splashScreenTimer() {
+    Timer(const Duration(seconds: 4), () async {
       //seller is already logged-in
+      /*
       if(FirebaseAuth.instance.currentUser != null)
       {
         Navigator.push(context, MaterialPageRoute(builder: (c)=> HomeScreen()));
@@ -28,6 +22,8 @@ class _MySplashScreenState extends State<MySplashScreen>
       {
         Navigator.push(context, MaterialPageRoute(builder: (c)=> AuthScreen()));
       }
+      */
+      Navigator.push(context, MaterialPageRoute(builder: (c) => AuthScreen()));
     });
   }
 
@@ -40,38 +36,34 @@ class _MySplashScreenState extends State<MySplashScreen>
   }
 
   @override
-  Widget build(BuildContext context)
-  {
+  Widget build(BuildContext context) {
     return Material(
       child: Container(
         decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors:
-              [
-                Colors.pinkAccent,
-                Colors.purpleAccent,
-              ],
-              begin: FractionalOffset(0.0, 0.0),
-              end: FractionalOffset(1.0, 0.0),
-              stops: [0.0, 1.0],
-              tileMode: TileMode.clamp,
-            )
-        ),
+          colors: [
+            Colors.pinkAccent,
+            Colors.purpleAccent,
+          ],
+          begin: FractionalOffset(0.0, 0.0),
+          end: FractionalOffset(1.0, 0.0),
+          stops: [
+            0.0,
+            1.0
+          ],
+          tileMode: TileMode.clamp,
+        )),
         child: Center(
-
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-
               Padding(
                 padding: const EdgeInsets.all(12.0),
-                child: Image.asset(
-                  "images/splash.png"
-                ),
+                child: Image.asset("images/splash.png"),
               ),
-
-              const SizedBox(height: 10,),
-
+              const SizedBox(
+                height: 10,
+              ),
               const Text(
                 "iShop Sellers App",
                 style: TextStyle(
@@ -81,11 +73,8 @@ class _MySplashScreenState extends State<MySplashScreen>
                   fontWeight: FontWeight.bold,
                 ),
               ),
-
-
             ],
           ),
-
         ),
       ),
     );

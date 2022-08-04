@@ -9,7 +9,7 @@ Future<void> main() async {
 
   sharedPreferences = await SharedPreferences.getInstance();
 
-  //await Firebase.initializeApp();
+  await Firebase.initializeApp();
 
   runApp(const MyApp());
 }
